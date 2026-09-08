@@ -9,5 +9,11 @@
   },
   "triggers": {
     "crons": ["17 */4 * * *"]
-  }
+  },
+  "kv_namespaces": [
+    {
+      "binding": "AUTOPILOT_KV",
+      "id": "7d30f05faa15495883e99f599f5f0d85"
+    }
+  ]
 }
