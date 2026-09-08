@@ -1,7 +1,8 @@
 {
   "name": "Brand Hunter Mobile",
   "short_name": "Brand Hunter",
-  "start_url": "./",
+  "start_url": "/autopilot.html",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#061b1a",
   "theme_color": "#061b1a",
