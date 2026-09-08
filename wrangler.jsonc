@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "brand-hunter",
-  "main": "telegram-worker.js",
+  "main": "universal-worker.js",
   "compatibility_date": "2026-09-07",
   "assets": {
     "directory": "./public",
