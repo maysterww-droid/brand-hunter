@@ -40,7 +40,7 @@ function avoidList(b){return[...new Set(['VITA','VYTA','VIA','VITAVIA','VYTAVIA'
 function hash(n){return[...n].reduce((a,x,i)=>a+x.charCodeAt(0)*(i+7),0)}
 function similarity(a,b){a=a.toUpperCase();b=b.toUpperCase();const aa=new Set([...a].map((_,i)=>a.slice(i,i+2)).filter(x=>x.length===2)),bb=new Set([...b].map((_,i)=>b.slice(i,i+2)).filter(x=>x.length===2));let k=0;aa.forEach(x=>bb.has(x)&&k++);return k/Math.max(1,Math.min(aa.size,bb.size))}
 function scoreName(n,b,roots,examples){let s=80;if(n.length>=5&&n.length<=8)s+=7;if(/[AEIOUY]$/.test(n))s+=2;if(/[^AEIOUY]{3,}/.test(n))s-=10;if(new Set(n).size/n.length>.75)s+=3;if(roots.some(r=>n.includes(r)))s+=5;if(examples.length){const mx=Math.max(...examples.map(e=>similarity(n,e)));if(mx>.25&&mx<.75)s+=4;if(mx>=.8)s-=12}for(const bad of avoidList(b))if(n.includes(bad))s-=35;s+=(hash(n)%9)-4;return Math.max(40,Math.min(97,Math.round(s)))}
-const PERMANENT_BLOCKLIST=['KNOWME','BODYIQ','LIFEOS','GUIDEME','VAYTA','VYRA','VYORA','VYNTA'];
+const PERMANENT_BLOCKLIST=['KNOWME','BODYIQ','LIFEOS','GUIDEME','VAYTA','VYRA','VYORA','VYNTA','VYLIA','VEYTA','VYRIA'];
 const VITA_PRESERVE_CONCEPTS=[
  {name:'VITALIVE',display:'VITA.LIVE',expansion:'VITA — live healthier, guided by personal intelligence',kind:'VITA'},
  {name:'VITAIQ',display:'VITA.IQ',expansion:'VITA Intelligence — personal health intelligence',kind:'VITA'},
@@ -52,11 +52,8 @@ const VITA_PRESERVE_CONCEPTS=[
  {name:'VITAFLOW',display:'VITA.FLOW',expansion:'Health intelligence that adapts with your life',kind:'VITA'}
 ];
 const VYTA_EVOLUTION_CONCEPTS=[
- {name:'VYLIA',display:'VYLIA',expansion:'VYTA evolution — warm personal intelligence',kind:'VYTA_EVOLUTION'},
  {name:'VYENA',display:'VYENA',expansion:'VYTA evolution — life and personal guidance',kind:'VYTA_EVOLUTION'},
  {name:'VYELA',display:'VYELA',expansion:'VYTA evolution — vitality and adaptive guidance',kind:'VYTA_EVOLUTION'},
- {name:'VEYTA',display:'VEYTA',expansion:'VYTA evolution — familiar sound with a distinct mark',kind:'VYTA_EVOLUTION'},
- {name:'VYRIA',display:'VYRIA',expansion:'VYTA evolution — personal intelligence companion',kind:'VYTA_EVOLUTION'}
 ];
 const VYTA_DOT_CONCEPTS=[
  {name:'VYTAIQ',display:'VYTA.IQ',expansion:'VYTA Intelligence — Personal Health Intelligence',kind:'VYTA_DOT'},
